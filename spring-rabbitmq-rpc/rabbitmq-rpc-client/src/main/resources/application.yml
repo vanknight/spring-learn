@@ -1,0 +1,6 @@
+spring:
+  rabbitmq:
+    username: user01
+    password: 123456
+    addresses: 127.0.0.1:5672
+    virtual-host: /test01

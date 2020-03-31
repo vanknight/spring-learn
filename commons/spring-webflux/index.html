@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn-01">通讯</button>
+    <ul id="ul-01"></ul>
+</body>
+<script>
+    var btn01 = document.getElementById("btn-01");
+    var ul01 = document.getElementById("ul-01");
+    var evtSource = new EventSource("http://127.0.0.1:8080/sse");
+    evtSource.onmessage = function(e){
+        console.log("收到服务器消息: "+e.data);
+        var newElement = document.createElement("li");
+        newElement.innerHTML = "消息: "+e.data;
+        ul01.appendChild(newElement);
+    }
+    evtSource.onopen = function(){
+        console.log("connection opened")
+    }
+    btn01.onclick = function(){
+        console.log("客户端选择断开通讯")
+        evtSource.close();
+    }
+</script>
+</html>

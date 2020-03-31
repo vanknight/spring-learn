@@ -1,0 +1,26 @@
+druid:
+  initial-size: 10
+  min-idle: 3
+  driver-class-name:  com.mysql.cj.jdbc.Driver
+  url: jdbc:mysql://localhost:3306/learn01?serverTimezone=UTC
+  username: root
+  password: 123456
+mybatis-plus:
+  mapper-locations: classpath*:mapper/*Mapper.xml
+  type-aliases-package: com.learn.cache.dao.entity
+server:
+  port: 8090
+spring:
+  cache:
+    type: redis
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    database: 0
+    lettuce:
+      shutdown-timeout: 100
+      pool:
+        max-idle: 8
+        max-active: 8
+        max-wait: 30
+        min-idle: 0

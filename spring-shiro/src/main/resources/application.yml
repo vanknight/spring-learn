@@ -1,0 +1,22 @@
+server:
+  port: 8099
+
+spring:
+  redis:
+    lettuce:
+      shutdown-timeout: 200ms
+      pool:
+        min-idle: 0
+        max-active: 8
+        max-wait: 30
+        max-idle: 8
+    host: 127.0.0.1
+    port: 6379
+    database: 0
+
+shiro:
+  cahce:
+    prefixe: 'shiro-'
+
+appointment:
+  header-name: Authorization
